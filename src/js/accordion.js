@@ -15,11 +15,11 @@ export function Accordion (opt) {
             if(button.attr('data-state') == 'disabled') return false;
 
             // toggle
-            if (content.attr('data-state') == 'open') {
+            if (content.attr('data-active') == 'open') {
                 close();
 
             } else {
-                if (opt.openOnlyOne) $('.accordion-content').slideUp(slideDuration).attr('data-state', 'close');
+                if (opt.openOnlyOne) $('.accordion-content').slideUp(slideDuration).attr('data-active', 'close');
 
                 open();
             }
@@ -29,13 +29,13 @@ export function Accordion (opt) {
     function open () {
         content.slideDown(slideDuration);
         content.addClass('open');
-        content.attr('data-state', 'open');
+        content.attr('data-active', 'open');
     }
 
     function close () {
         content.slideUp(slideDuration);
         content.removeClass('open');
-        content.attr('data-state', 'close');
+        content.attr('data-active', 'close');
     }
 
     function reset () {
