@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Webpack</title>
+    <style>
+        .selectBox {
+            width:150px;
+            height:50px;
+            padding:0;
+            border:1px solid black;
+            background:none;
+        }
+        .selectList {
+            display:none;
+            margin:0;
+            margin-top:-1px;
+            padding:0;
+        }
+        .selectList[data-state="active"]{
+            display:block;
+        }
+        .selectList li {
+            width:148px;
+            height:50px;
+            line-height: 50px;
+            list-style: none;
+            border:1px solid black;
+            text-align: center;
+        }
+        .selectList li:hover {
+            background:#eee;
+        }
+        .selectList li + li {
+            border-top:none;
+        }
+    </style>
+    <!-- <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script> -->
+</head>
+<body>
+    <h2>component with webpack default setting</h2>
+
+    <!-- selectBox -->
+    <h3>select box</h3>
+    <div class="selectArea">
+        <button type="button" class="selectBox" id="sel" data-default="선택하세요." data-state="" tabindex="0"><span>선택하세요.</span></button>
+        <ul class="selectList" data-state="">
+            <li>
+                <span>Naver</span>
+            </li>
+            <li>
+                <span>Google</span>
+            </li>
+            <li>
+                <span>Nate</span>
+            </li>
+            <li>
+                <span>YouTube</span>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var selectBox = new SelectBox({
+        target : '#sel',
+        duration : 300,
+        ease : 'ease-in-out',
+        clickOther : true
+    });
+</script>
+</html>
