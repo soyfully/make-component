@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Webpack</title>
     <style>
+        /* select box */
+        .selectArea {
+            margin-bottom: 60px;
+        }
         .selectBox {
             width:150px;
             height:50px;
@@ -34,12 +38,54 @@
         .selectList li + li {
             border-top:none;
         }
+
+        /* accordion */
+        .accordion-item:after{
+            content: "";
+            display: block;
+            position: relative;
+            width: 100%;
+            background: #fff;
+            transition: .6s all ease;
+        }
+        .accordion-item .datatable-report ul {
+            list-style-type: disc;
+            list-style-position: inside;
+        }
+        .accordion-item .acc-title{
+            position: relative;
+            width: 50%;
+            height: 70px;
+            text-align: left;
+            cursor: pointer;
+        }
+        .accordion-item .acc-title em{
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            width: 20px;
+            height: 2px;
+            background: #000;
+            transition: .4s all;
+        }
+        .accordion-item .acc-title .ico01{
+            -webkit-transform: rotateZ(90deg);
+            transform: rotateZ(90deg);
+        }
+        .accordion-item .acc-title.on .ico01{
+            -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+        }
+        .accordion-item .acc-panel{
+            display: none;
+            height: auto;
+        }
     </style>
-    <!-- <script
+    <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
-    </script> -->
+    </script>
 </head>
 <body>
     <h2>component with webpack default setting</h2>
@@ -63,13 +109,67 @@
             </li>
         </ul>
     </div>
+
+    <!-- accordion -->
+    <h3>accordion</h3>
+    <div class="accordion" >
+        <div class="accordion-item accordion-wrap">
+            <button class="acc-title accordion-button" type="button">
+                <div class="tit">accordion list 01</div>
+                <div class="icon">
+                    <em class="ico01" aria-hidden="true"></em>
+                    <em class="ico02" aria-hidden="true"></em>
+                </div>
+            </button>
+            <div class="acc-panel accordion-content">
+                HI! this is accordion content area.
+            </div>
+        </div>
+        <div class="accordion-item accordion-wrap">
+            <button class="acc-title accordion-button" type="button">
+                <div class="tit">accordion list 02</div>
+                <div class="icon">
+                    <em class="ico01" aria-hidden="true"></em>
+                    <em class="ico02" aria-hidden="true"></em>
+                </div>
+            </button>
+            <div class="acc-panel accordion-content">
+                HI! this is accordion content area. <br>
+                HI! this is accordion content area. <br>
+            </div>
+        </div>
+        <div class="accordion-item accordion-wrap">
+            <button class="acc-title accordion-button" type="button">
+                <div class="tit">accordion list 03</div>
+                <div class="icon">
+                    <em class="ico01" aria-hidden="true"></em>
+                    <em class="ico02" aria-hidden="true"></em>
+                </div>
+            </button>
+            <div class="acc-panel accordion-content">
+                HI! this is accordion content area. <br>
+                HI! this is accordion content area. <br>
+                HI! this is accordion content area.
+            </div>
+        </div>
+    </div>
 </body>
 <script>
     var selectBox = new SelectBox({
         target : '#sel',
         duration : 300,
-        ease : 'ease-in-out',
+        ease : 'ease-in',
         clickOther : true
     });
+
+    $('.accordion-wrap').each(function () {
+        var accordion = new Accordion({
+            target : $(this),
+            duration : 300,
+            openOnlyOne : false,
+        });
+    })
+
+
 </script>
 </html>

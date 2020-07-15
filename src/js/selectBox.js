@@ -43,9 +43,9 @@ export function SelectBox (_opt){
         _slideDown();
         listCont.setAttribute('data-state', 'open');
 
-        active = true;
-
         _clickAnotherPlace();
+
+        active = true;
     }
 
     function close () {
