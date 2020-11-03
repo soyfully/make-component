@@ -1,3 +1,2 @@
-export { SelectBox } from './selectBox.js';
+export { SelectBox } from './selectBox_jquery.js';
 export { Accordion } from './accordion.js';
-
